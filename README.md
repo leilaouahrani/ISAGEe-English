@@ -1,6 +1,8 @@
 ISAGEe-English: Integrated Short Answer Grader for e-learning environment (For English)
                                 Version 1.0
 =======================
+This work is supported by the Ministry of Higher Education and Scientific Research in Algeria (Project C00L07UN100120180002) 
+Conception & Supervision: L. Ouahrani & D. Bennouar / Contributor: Madani Raouf & Snoussi ElHareth
 
 License : http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
 
@@ -31,16 +33,16 @@ The Grader is used on our Moodle University Platform in formative and summative 
 
    2.a.ISAGe Question Type Plugin-English (PHP classes zipped to install on Moodle: ISAGEeenglish.zip)
 
-   2.b.ISAGe External Grader-English (codes and data requirements).  
+   2. b.ISAGe External Grader-English (codes and data requirements).  
 
 ===== 
-2.a. The Moodle Plugin V1 (ISAGEeenglish)
+2. a. The Moodle Plugin V1 (ISAGEeenglish)
 
-This is our new Moodle Plugin using Moodle question type template. We extend the Moodle question engine to ISAGEenglish to grade English short answers scoring using NLP computation and supervised learning.
+This is our new Moodle Plugin using a Moodle question-type template. We extend the Moodle question engine to ISAGEenglish to grade English short answers scoring using NLP computation and supervised learning.
 
 =========================
 
-2.b. Grader code on Distant server /
+2. b. Grader code on Distant server /
 
 - The grader function is deployed on a distant server (Pythonanywhere).
 - The code in this folder is deployed via a web application on Pythonanywhere using the framework Flask.
@@ -62,14 +64,14 @@ https://drive.google.com/drive/folders/1KPZCvXvQ6VeK54fhkOpNxkUC3PQlPTXp?usp=sha
 - The code is written to test several pairs of reference answers and student answers. 
   That's why we used "Arrays" for the questions and answers each time. 
   If the code is to be used to test a single pair then put the question, the reference answer and the student answer each in an "Array". 
-  All functions that take the parameters named "AllQuestionCorpus" or "ResponsesCorpus" must be in the following syntax: AllQuestionCorpus=[[response1Question1,response2Question1,...],[response1Question2,response2Questio2,...],....] ModelAnswers=[Model1,Model2 , ... ]
+  All functions that take the parameters named "AllQuestionCorpus" or "ResponsesCorpus" must be in the following syntax: AllQuestionCorpus=[[response1Question1,response2Question1,...],[response1Question2, response2Questio2,...],....] ModelAnswers=[Model1, Model2, ... ]
 
 ======================= 
 3. How to deploy the grader into the e-learning environment?
 
 - The Web gateway to the clients is provided by the API framework which permits hosting the grader on the Cloud.
 - We use the Flask Framework to do it.
-  The Control and View component is handled by HTTP requests from the client-side (the e-learning system) to the server (Hosting Cloud).
+  The Control and View component is handled by HTTP requests from the client side (the e-learning system) to the server (Hosting Cloud).
   The Integrated Development Environment (EDI) is used as “PaaS” (Platform as a Service) whereas the ISAGe runs as “a service” separately. 
   The two modules(code grader(in Python) and the plugin(developed in PHP) communicate through a cURL interface. cURL is a command-line tool for getting or sending data using URL syntax. cURL supports HTTPS to transmit students’ answers and reference answers to the external grader; then it asynchronously waits for grades from the grader and returns them to the LMS quiz system.
 
